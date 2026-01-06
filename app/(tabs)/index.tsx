@@ -6,7 +6,7 @@ const index = () => {
   return (
     <>
     <View className='flex-col h-full gap-3'>
-        <View className='flex-1 bg-[#2bb673] rounded-md mx-5 mt-10'>
+        <View className='flex-1 bg-green-500 rounded-md mx-5 mt-10'>
             <View className='flex-1 flex-col gap-2'>
                 <View className='flex-1 px-10 flex-col justify-center gap-3'>
                     <Text className='text-white text-2xl font-bold'>Total Balance</Text>
