@@ -1,13 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const settings = () => {
   return (
-    <>
-        <View className='flex-col h-full items-start gap-3 bg-gray-300'>
-            <View></View>
+    <SafeAreaView>
+        <View>
+            <Text>Settings</Text>
         </View>
-    </>
+    </SafeAreaView>
   )
 }
 
