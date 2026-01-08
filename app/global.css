@@ -1,3 +1,91 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #f2f2f7;
+    --foreground: #000000;
+    --card: #ffffff;
+    --card-foreground: #081c1e;
+    --popover: #e6e6eb;
+    --popover-foreground: #000000;
+    --primary: #007bfe;
+    --primary-foreground: #ffffff;
+    --secondary: #2dafe7;
+    --secondary-foreground: #ffffff;
+    --muted: #6b7280;
+    --muted-foreground: #8e8e93;
+    --accent: #ff2854;
+    --accent-foreground: #ffffff;
+    --destructive: #ff382b;
+    --destructive-foreground: #ffffff;
+    --border: #e6e6eb;
+    --input: #d2d2d7;
+    --ring: #e6e6eb;
+
+    --android-background: #f9f9ff;
+    --android-foreground: #000000;
+    --android-card: #ffffff;
+    --android-card-foreground: #181c23;
+    --android-popover: #d7d9e4;
+    --android-popover-foreground: #000000;
+    --android-primary: #0070e9;
+    --android-primary-foreground: #ffffff;
+    --android-secondary: #b0c9ff;
+    --android-secondary-foreground: #14376c;
+    --android-muted: #c1c6d7;
+    --android-muted-foreground: #414754;
+    --android-accent: #a949cc;
+    --android-accent-foreground: #ffffff;
+    --android-destructive: #ba1a1a;
+    --android-destructive-foreground: #ffffff;
+    --android-border: #d7d9e4;
+    --android-input: #d2d2d7;
+    --android-ring: #d7d9e4;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #000000;
+      --foreground: #ffffff;
+      --card: #151518;
+      --card-foreground: #ffffff;
+      --popover: #28282a;
+      --popover-foreground: #ffffff;
+      --primary: #0385ff;
+      --primary-foreground: #ffffff;
+      --secondary: #64d3fe;
+      --secondary-foreground: #ffffff;
+      --muted: #464649;
+      --muted-foreground: #8e8e93;
+      --accent: #ff345f;
+      --accent-foreground: #ffffff;
+      --destructive: #fe4336;
+      --destructive-foreground: #ffffff;
+      --border: #28282a;
+      --input: #373739;
+      --ring: #28282a;
+
+      --android-background: #000000;
+      --android-foreground: #ffffff;
+      --android-card: #10131b;
+      --android-card-foreground: #e0e2ed;
+      --android-popover: #272a32;
+      --android-popover-foreground: #e0e2ed;
+      --android-primary: #0385ff;
+      --android-primary-foreground: #ffffff;
+      --android-secondary: #1c3c72;
+      --android-secondary-foreground: #bdd1ff;
+      --android-muted: #d8e2ff;
+      --android-muted-foreground: #8b90a0;
+      --android-accent: #53006f;
+      --android-accent-foreground: #eeb1ff;
+      --android-destructive: #93000a;
+      --android-destructive-foreground: #ffffff;
+      --android-border: #272a32;
+      --android-input: #373739;
+      --android-ring: #272a32;
+    }
+  }
+}
