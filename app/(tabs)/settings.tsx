@@ -1,12 +1,14 @@
 import { useColorScheme } from '@/lib/useColorScheme';
+import { COLORS } from '@/theme/colors';
 import { StatusBar } from 'expo-status-bar';
-import { ChevronRight, Moon, User } from 'lucide-react-native';
+import { ChevronRight, LogOut, Moon, User } from 'lucide-react-native';
 import React from 'react';
 import { Pressable, Switch, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+
 const settings = () => {
-    const { colorScheme } = useColorScheme();
+    const { colorScheme, toggleColorScheme, isDarkColorScheme } = useColorScheme();
 
   return (
     <SafeAreaView className='flex-1 bg-background'>
@@ -20,14 +22,19 @@ const settings = () => {
                     <Text className='text-input font-bold'>APPEARANCE</Text>
                 </View>
                 <View className='bg-card border-border border p-4 rounded-md'>
-                    <Pressable className='flex-row items-center justify-between'>
+                    <Pressable onPress={() => toggleColorScheme()} className='flex-row items-center justify-between'>
                         <View className='flex-row items-center gap-3'>
-                            <View className='w-8 h-8 bg-teal-200 rounded-md items-center justify-center'>
-                                <Moon/>
+                            <View className='w-8 h-8 bg-primary rounded-md items-center justify-center'>
+                                <Moon color={isDarkColorScheme ? COLORS.light.grey6 : COLORS.dark.grey6}/>
                             </View>
                             <Text className='text-lg font-medium text-foreground'>Dark Mode</Text>
                         </View>
-                        <Switch/>
+                        <Switch
+                        onValueChange={toggleColorScheme}
+                        trackColor={{false: COLORS.light.foreground, true: COLORS.dark.foreground}}
+                        thumbColor={COLORS.light.primary}
+                        value={isDarkColorScheme}
+                        />
                     </Pressable>
                 </View>
                 <View className='mt-10 my-2'>
@@ -36,16 +43,30 @@ const settings = () => {
                 <View className='bg-card border-border border p-4 rounded-md'>
                     <Pressable className='flex-row items-center justify-between'>
                         <View className='flex-row items-center gap-3'>
-                            <View className='w-8 h-8 bg-teal-200 rounded-md items-center justify-center'>
-                                <User/>
+                            <View className='w-8 h-8 bg-primary rounded-md items-center justify-center'>
+                                <User color={isDarkColorScheme ? COLORS.light.grey6 : COLORS.dark.grey6}/>
                             </View>
                             <Text className='text-lg font-medium text-foreground'>Profile</Text>
                         </View>
-                        <ChevronRight color={colorScheme == 'dark' ? 'white' : 'black'}/>
+                        <ChevronRight color={isDarkColorScheme ? COLORS.light.grey6 : COLORS.dark.grey6}/>
+                    </Pressable>
+
+                    <View className='border-t border-border my-5'/>
+
+                    <Pressable className='flex-row items-center justify-between'>
+                        <View className='flex-row items-center gap-3'>
+                            <View className='w-8 h-8 bg-[#fdecec] rounded-md items-center justify-center'>
+                                <LogOut color={isDarkColorScheme ? COLORS.light.destructive : COLORS.dark.destructive}/>
+                            </View>
+                            <Text className='text-lg font-medium text-destructive'>Log Out</Text>
+                        </View>
                     </Pressable>
                 </View>
 
-
+                <View className='border-t border-border my-20'/>
+                <View className='mt-20'>
+                    <Text className='text-center text-foreground font-thin'>Beware of little expenses. A small leak will sink a great ship.</Text>
+                </View>
             </View>
         </View>
     </SafeAreaView>
