@@ -1,26 +1,37 @@
+import { useColorScheme } from "@/lib/useColorScheme";
+import { COLORS } from "@/theme/colors";
 import { Tabs } from "expo-router";
 import { History, Home, SlidersVertical } from 'lucide-react-native';
 import React from 'react';
+COLORS
 
 export default function TabLayout() {
+    const {colorScheme, isDarkColorScheme} = useColorScheme();
+
     return (
-        <Tabs screenOptions={{
-            tabBarActiveTintColor: '#2bb673',
+        <Tabs
+        screenOptions={{
+            tabBarActiveTintColor: isDarkColorScheme ? COLORS.light.primary : COLORS.dark.primary,
             tabBarInactiveTintColor: '#556063',
             tabBarStyle: {
-                borderTopWidth:1,
-                borderTopColor: '#2bb673',
-                height: 100,
-                paddingBottom: 10,
-                paddingTop: 10
+                position: 'absolute',
+                bottom: 25,
+                left: 20,
+                right: 20,
+                elevation: 0,
+                height: 90,
+                borderRadius: 15,
             },
             tabBarLabelStyle: {
                 fontSize: 14,
                 fontWeight: '600'
             },
-            headerShown: false
+            headerShown: false,
+            tabBarPosition: 'bottom',
+            animation: 'shift',
 
-        }}>
+        }}
+        >
             <Tabs.Screen name="index"
             options={{
                 title: 'Home',
