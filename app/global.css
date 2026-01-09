@@ -10,8 +10,8 @@
     --card-foreground: #081c1e;
     --popover: #e6e6eb;
     --popover-foreground: #000000;
-    --primary: #007bfe;
-    --primary-foreground: #ffffff;
+    --primary: #14b8a6,
+    --primary-foreground: #1bffe6;
     --secondary: #2dafe7;
     --secondary-foreground: #ffffff;
     --muted: #6b7280;
@@ -30,8 +30,8 @@
     --android-card-foreground: #181c23;
     --android-popover: #d7d9e4;
     --android-popover-foreground: #000000;
-    --android-primary: #0070e9;
-    --android-primary-foreground: #ffffff;
+    --android-primary: #14b8a6;
+    --android-primary-foreground: #1bffe6;
     --android-secondary: #b0c9ff;
     --android-secondary-foreground: #14376c;
     --android-muted: #c1c6d7;
@@ -53,10 +53,10 @@
       --card-foreground: #ffffff;
       --popover: #28282a;
       --popover-foreground: #ffffff;
-      --primary: #0385ff;
-      --primary-foreground: #ffffff;
-      --secondary: #64d3fe;
-      --secondary-foreground: #ffffff;
+      --primary: #2dd4bf;
+      --primary-foreground: #36ffe5;
+      --secondary: #12303a;
+      --secondary-foreground: #296f86;
       --muted: #464649;
       --muted-foreground: #8e8e93;
       --accent: #ff345f;
@@ -73,8 +73,8 @@
       --android-card-foreground: #e0e2ed;
       --android-popover: #272a32;
       --android-popover-foreground: #e0e2ed;
-      --android-primary: #0385ff;
-      --android-primary-foreground: #ffffff;
+      --android-primary: #2dd4bf;
+      --android-primary-foreground: #36ffe5;
       --android-secondary: #1c3c72;
       --android-secondary-foreground: #bdd1ff;
       --android-muted: #d8e2ff;
