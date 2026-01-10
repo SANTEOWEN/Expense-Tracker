@@ -63,7 +63,7 @@ const settings = () => {
                     </Pressable>
                 </View>
 
-                <View className='border-t border-border my-20'/>
+                <View className='border-t border-border my-10'/>
                 <View className='mt-20'>
                     <Text className='text-center text-foreground font-thin'>Beware of little expenses. A small leak will sink a great ship.</Text>
                 </View>
