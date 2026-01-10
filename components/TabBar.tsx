@@ -1,17 +1,19 @@
-import { COLORS } from '@/theme/colors';
+import { createIconMap } from '@/constants/Icons';
+import { useColorScheme } from '@/lib/useColorScheme';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
-import { PlatformPressable } from '@react-navigation/elements';
-import { useLinkBuilder, useTheme } from '@react-navigation/native';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { TabBarButton } from './TabBarButton';
 
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  const { colors } = useTheme();
-  const { buildHref } = useLinkBuilder();
+const {colorScheme, isDarkColorScheme} = useColorScheme();
+const icon = createIconMap(isDarkColorScheme)
+
+
 
   return (
-    <View>
+    <View className='flex-row bottom-10 justify-between items-center mx-20 py-5'>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -43,20 +45,17 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
         };
 
         return (
-          <PlatformPressable
-            key={route.key}
-            href={buildHref(route.name, route.params)}
-            accessibilityState={isFocused ? { selected: true } : {}}
-            accessibilityLabel={options.tabBarAccessibilityLabel}
-            testID={options.tabBarButtonTestID}
-            onPress={onPress}
-            onLongPress={onLongPress}
-            style={{ flex: 1 }}
-          >
-            <Text style={{ color: isFocused ? COLORS.light.primary : '#556063'}}>
-              {label}
-            </Text>
-          </PlatformPressable>
+        <TabBarButton
+        key={route.name}
+        onLongPress={onLongPress}
+        onPress={onPress}
+        styles='flex-1 justify-center items-center gap-1'
+        isFocused={isFocused}
+        routeName={route.name}
+        label={typeof label === 'string' ? label : route.name}
+        icon={icon}
+        />
+
         );
       })}
     </View>
