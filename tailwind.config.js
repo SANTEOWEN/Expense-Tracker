@@ -10,13 +10,6 @@ module.exports = {
         border: withOpacity('border'),
         background: withOpacity("background"),
         foreground: withOpacity("foreground"),
-        primary: withOpacity("primary"),
-        secondary: withOpacity("secondary"),
-        destructive: withOpacity("destructive"),
-        muted: withOpacity("muted"),
-        accent: withOpacity("accent"),
-        popover: withOpacity("popover"),
-        card: withOpacity("card"),
         input: withOpacity('input'),
 
         primary: {
