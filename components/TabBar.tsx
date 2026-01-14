@@ -8,12 +8,11 @@ import { TabBarButton } from './TabBarButton';
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const {colorScheme, isDarkColorScheme} = useColorScheme();
-const icon = createIconMap(isDarkColorScheme)
-
+const icon = createIconMap(isDarkColorScheme);
 
 
   return (
-    <View className='flex-row bottom-10 justify-between items-center mx-20 py-5'>
+    <View className='flex-row justify-between items-center mx-20 py-5'>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -59,5 +58,6 @@ const icon = createIconMap(isDarkColorScheme)
         );
       })}
     </View>
+
   );
 }

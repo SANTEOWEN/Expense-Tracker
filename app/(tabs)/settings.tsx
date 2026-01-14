@@ -31,7 +31,7 @@ const settings = () => {
                         </View>
                         <Switch
                         onValueChange={toggleColorScheme}
-                        trackColor={{false: COLORS.light.foreground, true: COLORS.dark.foreground}}
+                        trackColor={{false: COLORS.light.muted, true: COLORS.dark.foreground}}
                         thumbColor={COLORS.light.primary}
                         value={isDarkColorScheme}
                         />
