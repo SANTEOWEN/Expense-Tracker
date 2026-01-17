@@ -7,10 +7,15 @@ import { StatusBar } from 'expo-status-bar'
 import { Briefcase, Car, Heart, Plus, ShoppingBag, ShoppingCart, TrendingUp, Tv, UtensilsCrossed, Wallet, Zap } from 'lucide-react-native'
 import React, { useState } from 'react'
 import { FlatList, Pressable, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { useNavigationMode } from 'react-native-navigation-mode'
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
+
 
 
 const index = () => {
+  const insets = useSafeAreaInsets()
+  const {navigationMode, loading, error} = useNavigationMode()
+
   const { isDarkColorScheme } = useColorScheme();
   const iconMap: { [key: string]: any } = {
     ShoppingCart, Car, Tv, UtensilsCrossed, Zap, Heart, ShoppingBag, Wallet, Briefcase, TrendingUp
@@ -49,18 +54,20 @@ const index = () => {
   const balance = totalIncome + totalExpense
 
   return (
-    <>
-    <SafeAreaView className='flex-1 bg-background'>
+    <SafeAreaView className='h-[755px] m-5'>
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'}/>
-        <View className='flex-1 px-5 pb-6 flex-col'>
-            <View className='bg-primary rounded-lg py-10 w-full max-w-screen-md'>
+
+        <View className='flex-1 flex-col'>
+
+            {/* Balance Card TODO: Create a seperated card component for it. */}
+            <View className='mb-4 bg-primary rounded-lg py-10'>
                 <View className='justify-center items-center'>
                     <Text className='text-white opacity-80 text-sm mb-2'>Total Balance</Text>
                     <Text className='text-white text-5xl font-extrabold'>₱{balance.toFixed(2)}</Text>
                 </View>
             </View>
 
-            <Pressable className='my-10 items-center justify-center bg-foreground p-5 rounded-lg' onPress={() => (console.log('test'))}>
+            <Pressable className='items-center justify-center bg-foreground p-4 rounded-lg w-full' onPress={() => (console.log(navigationMode?.type))}>
                 <View className='flex-row items-center'>
                     <Plus color={isDarkColorScheme ? 'black' : 'white'}/>
                     <Text className='text-background'> Add Transaction </Text>
@@ -68,26 +75,28 @@ const index = () => {
             </Pressable>
 
             <View className='py-5 flex-row justify-between'>
-                <Text className='text-lg text-foreground font-thin'>Recent Transactions</Text>
-                <View>
-                    <Text className='text-base text-foreground font-thin text-primary'>View All</Text>
-                </View>
+                <Text className='text-lg text-foreground font-base'>Recent Transactions</Text>
+                <Pressable>
+                    <Text className='text-base text-foreground font-base text-primary'>View All</Text>
+                </Pressable>
             </View>
-            <FlatList
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-            data={filteredTransactions}
-            renderItem={({item}) => {
-                const category = getCategoryById(item.category_id);
-                if (!category) return null;
 
-                return <RenderItemCard transaction={item} category={category}/>
-            }}
-            />
 
+                    <FlatList
+                    ItemSeparatorComponent={() => <View className='p-1'/>}
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    data={filteredTransactions.slice(0, 5)}
+                    renderItem={({item}) => {
+                        const category = getCategoryById(item.category_id);
+                        if (!category) return null;
+
+                        return (
+                                <RenderItemCard transaction={item} category={category}/>
+                        )
+                    }}/>
         </View>
     </SafeAreaView>
-    </>
   )
 }
 

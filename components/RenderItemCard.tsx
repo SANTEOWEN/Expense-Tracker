@@ -12,13 +12,11 @@ type ItemCardProps = {
     onPress?: () => void;
 }
 
-
-
 const RenderItemCard = ({transaction, category, onPress}: ItemCardProps) => {
 const Icon = getLucideIcon(category.icon)
 
 return (
-    <View className='bg-card p-[15px] my-1 rounded-md'>
+    <View className='bg-card p-3 rounded-md'>
         <Pressable className='flex-row items-center justify-between'>
             <View className='flex-row items-center gap-3'>
                 <View className='w-12 h-12 rounded-lg items-center justify-center' style={{backgroundColor: lighten(category.color)}}>

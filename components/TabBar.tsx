@@ -3,16 +3,19 @@ import { useColorScheme } from '@/lib/useColorScheme';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { View } from 'react-native';
+import { useNavigationMode } from 'react-native-navigation-mode';
 import { TabBarButton } from './TabBarButton';
 
 
 export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 const {colorScheme, isDarkColorScheme} = useColorScheme();
 const icon = createIconMap(isDarkColorScheme);
+const { navigationMode, loading, error } = useNavigationMode()
+
 
 
   return (
-    <View className='flex-row justify-between items-center mx-20 py-5'>
+    <View className={`border-border border flex-row justify-between items-center bg-card p-2 rounded-full absolute bottom-16 mx-5`}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -34,6 +37,7 @@ const icon = createIconMap(isDarkColorScheme);
           if (!isFocused && !event.defaultPrevented) {
             navigation.navigate(route.name, route.params);
           }
+
         };
 
         const onLongPress = () => {
@@ -58,6 +62,5 @@ const icon = createIconMap(isDarkColorScheme);
         );
       })}
     </View>
-
   );
 }
