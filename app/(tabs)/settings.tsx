@@ -1,5 +1,6 @@
-import { useColorScheme } from '@/lib/useColorScheme';
+import { useColorScheme } from '@/hooks/useColorScheme';
 import { COLORS } from '@/theme/colors';
+import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ChevronRight, LogOut, Moon, User } from 'lucide-react-native';
 import React from 'react';
@@ -9,6 +10,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 const settings = () => {
     const { colorScheme, toggleColorScheme, isDarkColorScheme } = useColorScheme();
+    const router = useRouter()
+    const handleLogout = () => {
+        router.replace('/auth')
+        console.log('PRESSED')
+    }
 
   return (
     <SafeAreaView className='flex-1 bg-background'>
@@ -53,7 +59,7 @@ const settings = () => {
 
                     <View className='border-t border-border my-5'/>
 
-                    <Pressable className='flex-row items-center justify-between'>
+                    <Pressable className='flex-row items-center justify-between' onPress={() => (handleLogout())}>
                         <View className='flex-row items-center gap-3'>
                             <View className='w-8 h-8 bg-[#fdecec] rounded-md items-center justify-center'>
                                 <LogOut color={isDarkColorScheme ? COLORS.light.destructive : COLORS.dark.destructive}/>
