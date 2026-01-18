@@ -1,5 +1,5 @@
 import { createIconMap } from '@/constants/Icons';
-import { useColorScheme } from '@/lib/useColorScheme';
+import { useColorScheme } from '@/hooks/useColorScheme';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { View } from 'react-native';
