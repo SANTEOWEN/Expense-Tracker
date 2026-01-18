@@ -1,8 +1,8 @@
 
 import RenderItemCard from '@/components/RenderItemCard'
 import { testCategories, testTransactions } from '@/constants/test-data'
+import { useColorScheme } from '@/hooks/useColorScheme'
 import { Category } from '@/lib/types.types'
-import { useColorScheme } from '@/lib/useColorScheme'
 import { StatusBar } from 'expo-status-bar'
 import { Briefcase, Car, Heart, Plus, ShoppingBag, ShoppingCart, TrendingUp, Tv, UtensilsCrossed, Wallet, Zap } from 'lucide-react-native'
 import React, { useState } from 'react'
@@ -54,11 +54,11 @@ const index = () => {
   const balance = totalIncome + totalExpense
 
   return (
-    <SafeAreaView className='h-[755px] m-5'>
+    <SafeAreaView className='flex-1 m-5'>
         <StatusBar style={isDarkColorScheme ? 'light' : 'dark'}/>
 
-        <View className='flex-1 flex-col'>
-
+        {/* Total Balance */}
+        <View className='flex-none flex-col'>
             {/* Balance Card TODO: Create a seperated card component for it. */}
             <View className='mb-4 bg-primary rounded-lg py-10'>
                 <View className='justify-center items-center'>
@@ -74,15 +74,18 @@ const index = () => {
                 </View>
             </Pressable>
 
-            <View className='py-5 flex-row justify-between'>
+            <View className='mt-10 py-5 flex-row justify-between'>
                 <Text className='text-lg text-foreground font-base'>Recent Transactions</Text>
                 <Pressable>
                     <Text className='text-base text-foreground font-base text-primary'>View All</Text>
                 </Pressable>
             </View>
+        </View>
 
-
-                    <FlatList
+        {/* List of data's */}
+        <View className='flex-initial max-h-[50%]'>
+                <FlatList
+                    className='grow-0'
                     ItemSeparatorComponent={() => <View className='p-1'/>}
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
@@ -96,6 +99,7 @@ const index = () => {
                         )
                     }}/>
         </View>
+
     </SafeAreaView>
   )
 }
