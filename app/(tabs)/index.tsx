@@ -15,7 +15,6 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 const index = () => {
   const insets = useSafeAreaInsets()
   const {navigationMode, loading, error} = useNavigationMode()
-
   const { isDarkColorScheme } = useColorScheme();
   const iconMap: { [key: string]: any } = {
     ShoppingCart, Car, Tv, UtensilsCrossed, Zap, Heart, ShoppingBag, Wallet, Briefcase, TrendingUp
@@ -74,7 +73,7 @@ const index = () => {
                 </View>
             </Pressable>
 
-            <View className='mt-10 py-5 flex-row justify-between'>
+            <View className='mt-5 py-5 flex-row justify-between'>
                 <Text className='text-lg text-foreground font-base'>Recent Transactions</Text>
                 <Pressable>
                     <Text className='text-base text-foreground font-base text-primary'>View All</Text>
