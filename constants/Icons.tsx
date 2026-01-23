@@ -23,7 +23,22 @@ export const createIconMap = (isDarkColorScheme: boolean) => ({
       color={isDarkColorScheme ? COLORS.light.primary : COLORS.dark.primary}
       {...props}
     />
-  )
+  ),
+ budget: (props: LucideProps) => (
+    <Lucide.HandCoins
+      size={24}
+      color={isDarkColorScheme ? COLORS.light.primary : COLORS.dark.primary}
+      {...props}
+    />
+  ),
+
+goals: (props: LucideProps) => (
+    <Lucide.Goal
+      size={24}
+      color={isDarkColorScheme ? COLORS.light.primary : COLORS.dark.primary}
+      {...props}
+    />
+  ),
 });
 
 export type IconMap = ReturnType<typeof createIconMap>;

@@ -4,7 +4,7 @@ import { testCategories, testTransactions } from '@/constants/test-data'
 import { useColorScheme } from '@/hooks/useColorScheme'
 import { Category } from '@/lib/types.types'
 import { StatusBar } from 'expo-status-bar'
-import { Briefcase, Car, Heart, Plus, ShoppingBag, ShoppingCart, TrendingUp, Tv, UtensilsCrossed, Wallet, Zap } from 'lucide-react-native'
+import { Briefcase, Car, Heart, ShoppingBag, ShoppingCart, TrendingUp, Tv, UtensilsCrossed, Wallet, Zap } from 'lucide-react-native'
 import React, { useState } from 'react'
 import { FlatList, Pressable, Text, View } from 'react-native'
 import { useNavigationMode } from 'react-native-navigation-mode'
@@ -65,14 +65,6 @@ const index = () => {
                     <Text className='text-white text-5xl font-extrabold'>₱{balance.toFixed(2)}</Text>
                 </View>
             </View>
-
-            <Pressable className='items-center justify-center bg-foreground p-4 rounded-lg w-full' onPress={() => (console.log(navigationMode?.type))}>
-                <View className='flex-row items-center'>
-                    <Plus color={isDarkColorScheme ? 'black' : 'white'}/>
-                    <Text className='text-background'> Add Transaction </Text>
-                </View>
-            </Pressable>
-
             <View className='mt-5 py-5 flex-row justify-between'>
                 <Text className='text-lg text-foreground font-base'>Recent Transactions</Text>
                 <Pressable>
