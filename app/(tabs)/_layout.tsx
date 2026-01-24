@@ -21,16 +21,6 @@ export default function TabLayout() {
             />
 
             <Tabs.Screen
-            name='budget'
-            options={{title: 'Budget'}}
-            />
-
-            <Tabs.Screen
-            name='goals'
-            options={{title: 'Goals'}}
-            />
-
-            <Tabs.Screen
             name="settings"
             options={{title: 'Options'}}
             />
