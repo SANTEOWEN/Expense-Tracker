@@ -9,12 +9,13 @@ export const Modal = ({ isOpen, withInput, children, ...rest }: PROPS) => {
     const content = withInput ? (
         <KeyboardAvoidingView
             className="items-center justify-center flex-1 px-3"
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
+            enabled={true}
         >
             {children}
         </KeyboardAvoidingView>
     ) : (
-        <View className="items-center justify-center flex-1 px-3">
+        <View className="items-center justify-center flex-1 px-3 m-2">
             {children}
         </View>
     )
