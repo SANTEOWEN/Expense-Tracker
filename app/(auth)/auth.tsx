@@ -7,7 +7,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function AuthScreen() {
 const { colorScheme, toggleColorScheme, isDarkColorScheme } = useColorScheme();
+
 const router = useRouter()
+
 const handleRoute = () => {
     router.navigate('/(tabs)')
 }
@@ -17,7 +19,7 @@ const handleRoute = () => {
         <SafeAreaView className="flex-1 bg-background w-full">
             <View className="m-10 flex-1">
                 <View className="flex-col flex-1">
-                    <View className="flex-none mt-5 items-center justify-start">
+                    <View className="flex-none my-5 items-center justify-start">
                         <View className="w-16 h-16 bg-primary rounded-md items-center justify-center my-5">
                             <Wallet color={isDarkColorScheme ? COLORS.light.grey6 : COLORS.dark.grey6}/>
                         </View>
@@ -29,32 +31,33 @@ const handleRoute = () => {
                         </View>
                     </View>
 
-                    <View className='mt-3 items-start flex-shrink flex-col'>
+                    <View className='items-start flex-shrink flex-col overflow-auto'>
                         <View className='my-2'>
                             <Text className='text-foreground'>Email Address</Text>
                         </View>
-                        <View className='my-1 border-border border w-full rounded-lg p-3'>
+                        <View className='my-1 border-border border w-full rounded-lg p-2'>
                             <TextInput
                             placeholder='example@gmail.com'
                             autoCapitalize='none'
                             />
                         </View>
-                        <View className='mt-5 mb-2'>
+                        <View className='mb-2'>
                             <Text className='text-foreground'>Password</Text>
                         </View>
-                        <View className='my-1 border-border border w-full rounded-lg p-3'>
+                        <View className='border-border border w-full rounded-lg p-2'>
                             <TextInput
                             autoCapitalize='none'
                             placeholder='Password'
+                            secureTextEntry
                             />
                         </View>
                     </View>
 
-                    <View className='items-end my-5'>
+                    <View className='mt-5 items-end gap-5'>
                         <Pressable>
                             <Text className='text-primary'>Forgot Password?</Text>
                         </Pressable>
-                        <View className='mt-5 items-center justify-center w-full'>
+                        <View className='items-center justify-center w-full'>
                             <Pressable className='bg-primary p-5 w-full items-center rounded'>
                                 <Text className='text-foreground'>Sign In</Text>
                             </Pressable>
@@ -75,7 +78,7 @@ const handleRoute = () => {
                     </View>
 
                     <View className='items-center justify-center w-full flex-row mt-10 gap-2'>
-                        <Text className='text-input text-base'>Don't have an account?</Text>
+                        <Text className='text-input'>Don't have an account?</Text>
                         <Pressable onPress={() => (handleRoute())}>
                             <Text className='text-primary'> Sign up</Text>
                         </Pressable>
