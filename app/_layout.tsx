@@ -15,6 +15,7 @@ export default function RootLayout() {
                 <SafeAreaProvider>
                         <Stack screenOptions={{headerShown: false}}>
                             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                            <Stack.Screen name="(transactions)[id]" options={{ headerShown: false }} />
                         </Stack>
                 </SafeAreaProvider>
         </NavThemeProvider>
