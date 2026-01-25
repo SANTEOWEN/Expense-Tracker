@@ -54,7 +54,7 @@ const AddTransactions = ({ onPress }: { onPress: () => void }) => {
         <View className='bg-background items-center justify-center rounded-lg p-4 w-full border-border border'>
             <View className='flex-col gap-4 w-full p-3'>
                 {/* Close Button */}
-                <View className='flex-row justify-between items-center gap-2 mb-3'>
+                <View className='flex-row justify-start items-center gap-2 mb-3'>
                     <X color={isDarkColorScheme ? 'white' : 'black'} onPress={onPress} />
                     <Text className='text-foreground text-lg'> New Transaction</Text>
                 </View>
