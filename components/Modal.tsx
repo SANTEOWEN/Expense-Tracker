@@ -9,6 +9,7 @@ export const Modal = ({ isOpen, withInput, children, ...rest }: PROPS) => {
     const content = withInput ? (
         <KeyboardAvoidingView
             className="items-center justify-center flex-1 px-3"
+            behavior="padding"
             keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0}
             enabled={true}
         >
