@@ -41,8 +41,7 @@
             "backgroundColor": "#000000"
           }
         }
-      ],
-      "react-native-navigation-mode"
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

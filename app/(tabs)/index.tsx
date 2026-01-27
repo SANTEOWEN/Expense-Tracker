@@ -83,9 +83,6 @@ const index = () => {
                     data={filteredTransactions}
                     renderItem={({ item }) => {
                         const category = getCategoryById(item.category_id);
-                        console.log('Transaction ID:', item.transaction_id);
-                        console.log('Category ID:', item.category_id);
-                        console.log('Found Category:', category);
                         if (!category) return null;
 
                         return (

@@ -1,6 +1,6 @@
 import { getLucideIcon } from '@/constants/Icons'
 import { useColorScheme } from '@/hooks/useColorScheme'
-import { formatDate } from '@/lib/helper_functions'
+import { formatDate, lighten } from '@/lib/helper_functions'
 import { router, useLocalSearchParams } from 'expo-router'
 import { MoveLeft } from 'lucide-react-native'
 import React from 'react'
@@ -24,8 +24,8 @@ const TransactionPage = () => {
                     <Text className='text-foreground text-lg font-bold'> Transaction Details</Text>
                 </View>
                 <View className="items-center justify-center mb-3">
-                    <View className='w-20 h-20 rounded-full bg-red-300 items-center justify-center mb-3' style={{ backgroundColor: category_color as string }}>
-                        <Icon color={isDarkColorScheme ? 'white' : 'black'} size={40} />
+                    <View className='w-20 h-20 rounded-full bg-red-300 items-center justify-center mb-3' style={{ backgroundColor: lighten(category_color as string) }}>
+                        <Icon color={category_color as string} size={40} />
                     </View>
                     <Text className={`text-foreground text-2xl font-base text-center mb-2 ${type === 'expense' ? ' text-red-400' : ' text-green-400'}`}>
                         {type == 'expense' ? `- ₱${amount}.00` : `₱${amount}.00`}
